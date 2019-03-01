@@ -1,0 +1,97 @@
+﻿<Window x:Class="ColorPicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.4*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <xctk:ColorCanvas Grid.Column="0" Grid.Row="0" Name="ColorPicker" UsingAlphaChannel="False" SelectedColorChanged="ColorPicker_OnSelectedColorChanged" BorderBrush="White" Background="{x:Null}"/>
+
+            <StackPanel Grid.Row="1" Margin="6" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">C:</Label>
+                    <TextBox Text="{Binding ElementName=CmykColorC, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="CmykColorC" ValueChanged="CmykColorSlider_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">M:</Label>
+                    <TextBox Text="{Binding ElementName=CmykColorM, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="CmykColorM" ValueChanged="CmykColorSlider_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Y:</Label>
+                    <TextBox Text="{Binding ElementName=CmykColorY, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="CmykColorY" ValueChanged="CmykColorSlider_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">K:</Label>
+                    <TextBox Text="{Binding ElementName=CmykColorK, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="CmykColorK" ValueChanged="CmykColorSlider_OnValueChanged" />
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="10" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">L:</Label>
+                    <TextBox Text="{Binding ElementName=LabColorL, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="LabColorL" ValueChanged="LabColorSlider_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">A:</Label>
+                    <TextBox Text="{Binding ElementName=LabColorA, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Minimum="-128" Maximum="128" Name="LabColorA" ValueChanged="LabColorSlider_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">B:</Label>
+                    <TextBox Text="{Binding ElementName=LabColorB, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Minimum="-128" Maximum="128" Name="LabColorB" ValueChanged="LabColorSlider_OnValueChanged"/>
+                </DockPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">H:</Label>
+                    <TextBox Text="{Binding ElementName=HsvColorH, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="360" Name="HsvColorH" ValueChanged="HsvColor_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">S:</Label>
+                    <TextBox Text="{Binding ElementName=HsvColorS, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="HsvColorS" ValueChanged="HsvColor_OnValueChanged"/>
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">V:</Label>
+                    <TextBox Text="{Binding ElementName=HsvColorV, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Center" Height="20" Width="40" />
+                    <Slider IsSnapToTickEnabled="True" Maximum="100" Name="HsvColorV" ValueChanged="HsvColor_OnValueChanged"/>
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
